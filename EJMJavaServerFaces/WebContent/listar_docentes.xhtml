@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<title>Listagem de Docentes</title>
+</head>
+<body>
+
+	<h3>Docentes Cadastrados</h3>
+
+	<h3>
+		<h:form>
+			<h:commandLink value="+ Novo Docente"
+				action="#{docenteController.adicionarForm}" />
+		</h:form>
+	</h3>
+
+	<h4>
+		<h:outputLabel id="oplMensagem" value="#{docenteController.msg}" />
+	</h4>
+
+	<h:dataTable value="#{docenteController.listaDocentes}" var="docente"
+		border="1">
+
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+                      #{docente.nome}
+          </h:column>
+
+		<h:column>
+			<f:facet name="header">Matricula</f:facet>
+                      #{docente.matricula}
+          </h:column>
+
+		<h:column>
+			<f:facet name="header">Titulação</f:facet>#{docente.titulacao}
+          </h:column>
+
+		<h:column>
+			<f:facet name="header">
+			</f:facet>
+			<h:form>
+				<h:commandLink action="#{docenteController.excluirDocente}"
+					value="Excluir" />
+			</h:form>
+		</h:column>
+
+	</h:dataTable>
+
+</body>
+</html>
