@@ -32,9 +32,22 @@ public class DocenteController {
 	public DataModel<Docente> getListaDocentes() {
 
 		DocenteDAO dao = new DocenteDAOImpl();
-		List<Docente> lista = new ArrayList<>();//dao.listarDocentes();
+		List<Docente> lista = populaListaDocente();//dao.listarDocentes();
 		listaDocentes = new ListDataModel<Docente>(lista);
 		return listaDocentes;
+	}
+	
+	private List<Docente> populaListaDocente(){
+		Docente doc = new Docente();
+		doc.setId(1);
+		doc.setNome("TEste");
+		doc.setMatricula("123445678");
+		doc.setTitulacao("Teste");
+		
+		List<Docente> listaDocente = new ArrayList<>();
+		listaDocente.add(doc);
+		
+		return listaDocente;
 	}
 
 	public void setListaDocentes(DataModel<Docente> listaDocentes) {
